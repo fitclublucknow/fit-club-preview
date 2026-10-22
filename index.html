@@ -8,11 +8,9 @@
 <script src="data.js"></script><script src="common.js"></script><script>
 (()=>{'use strict';const N=window.Nexus;if(!N)return;const s=N.makeState(),modal=document.querySelector('#overview-modal');document.querySelector('#target-month').textContent=N.formatMonth(N.d.target_month);
 const txt=N.escapeHtml;
-function overview(c){const w=N.workout(c);let body=`<p class="pill">${txt(c.intensity||'Standard')} intensity</p>`;if(!w){body='<p class="muted">Workout details are not available in this archive.</p>';}else{
- if(w.parts.length){body+=w.parts.map(p=>{const movements=p.movements||[];let list=movements.slice(0,4).map(m=>txt(m.name)).join(' · ');return `<section class="overview-section"><h3>${txt(p.step||'Workout block')}</h3>${list?`<p class="detail-line">${list}${movements.length>4?' · …':''}</p>`:'<p class="detail-line">Your trainer will guide the session.</p>'}</section>`;}).join('');}
- else if(w.trainer_notes.length){body+='<section class="overview-section"><h3>About the session</h3>'+w.trainer_notes.filter(x=>x&&x.trim()).slice(0,5).map(line=>`<p class="detail-note">${txt(line)}</p>`).join('')+'</section>';}
- else body='<p class="detail-note">A detailed overview was not available in the archived workout.</p>';
- }return body+'<p class="tiny-note">The trainer will guide all exercises, levels and transitions during the class.</p>';
+function overview(c){
+  const w=N.workout(c);
+  return `<div class="member-intensity"><span class="pill">${txt(c.intensity||'Standard')} intensity</span></div>${N.memberSummary(c,w)}`;
 }
 function open(c){document.querySelector('#modal-title').textContent=c.name;document.querySelector('#modal-metadata').textContent=`${N.time12(c.start)} – ${N.time12(c.end)}  ·  ${c.branch}  ·  ${N.datestr(c.date)}`;document.querySelector('#modal-body').innerHTML=overview(c);modal.showModal();}
 function render(){N.renderControls(s,render);const all=N.classes(s.branch,s.date);document.querySelector('#day-heading').textContent=N.datestr(s.date);document.querySelector('#day-subtitle').textContent=`${s.branch} · ${N.formatMonth(N.d.target_month)} · Tap any class to see its workout overview`;document.querySelector('#class-count').textContent=all.length?`${all.length} CLASSES`:'NO CLASSES';document.querySelector('#schedule-list').innerHTML=all.map(c=>N.sessionCard(c)).join('')||'<div class="empty">No classes are scheduled on this day.</div>';document.querySelectorAll('[data-session]').forEach(button=>button.onclick=()=>open(N.d.classes.find(c=>c.id===button.dataset.session)));}

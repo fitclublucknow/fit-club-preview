@@ -1,0 +1,253 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Fit Club · Member · Mahanagar · Upcoming workouts</title><style>:root{--bg:#101116;--panel:#1c2028;--line:#343a45;--muted:#acb1bb;--accent:#ff8a38;--txt:#f7f8fa;--warn:#f4c07b}*{box-sizing:border-box}body{font:14px/1.48 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--txt);margin:0}.container{max-width:1080px;margin:auto;padding:20px}.head{border-bottom:1px solid var(--line);background:#17191e}.headinner{max-width:1080px;margin:auto;padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}.brand{font-size:21px;letter-spacing:-.7px;font-weight:850}.mark{display:inline-flex;background:var(--accent);color:#171412;border-radius:7px;padding:7px 8px;margin-right:10px}.tiny{font-size:11px;color:var(--muted)}.hero h1{font-size:27px;margin:8px 0}.hero p{color:var(--muted);margin:0}.controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:20px 0}.controls select,.controls input{background:#22252e;border:1px solid #515664;border-radius:8px;padding:9px 12px;color:var(--txt);min-height:39px;flex:1;min-width:180px}.count{font-size:12px;color:var(--muted)}.day{border:1px solid var(--line);border-radius:12px;margin:17px 0;overflow:hidden;background:#16191f}.dayHead{font-size:14px;font-weight:750;padding:12px 16px;background:#292d36;border-bottom:1px solid var(--line)}.item{padding:16px;border-bottom:1px solid #343943}.item:last-child{border-bottom:0}.row{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:9px}.title{font-size:17px;font-weight:760;margin:0 0 4px}.time{color:#ffc093;font-size:13px;font-weight:750}.dim{color:var(--muted);font-size:12px}.pills{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}.pill{font-size:11px;border:1px solid #505968;border-radius:999px;padding:4px 8px;color:#d1d4db}.pills .pill.main{border-color:#935935;color:#ffc6a0;background:#36261e}.desc{font-size:13px;color:#e8eaf0;margin:9px 0}.warning{color:#f6cd94;font-size:12px}.part{background:#20242d;border:1px solid #373c48;border-radius:10px;padding:11px;margin:10px 0}.part h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#ffbd8e}.part ul{margin:0;padding-left:21px}.part li{padding:2px 0}.notes{font-size:12px;color:#d7d9df;border-top:1px solid var(--line);margin-top:12px;padding-top:9px}.notes ol{padding-left:20px}.notes li{margin:3px 0;white-space:pre-wrap}summary{cursor:pointer;color:#ffc493;font-weight:650}.empty{padding:36px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}.foot{border-top:1px solid var(--line);padding:20px;text-align:center;font-size:11px;color:var(--muted);margin-top:35px}[hidden]{display:none!important}@media(max-width:650px){.container{padding:12px}.headinner{padding:12px}.hero h1{font-size:22px}.item{padding:12px}}
+/* Dark individual card presentation, without tinting the entire card */
+.day {background:transparent;border:0;overflow:visible}
+.dayHead {border:1px solid #393d46;border-radius:11px;background:#242731;color:#ffc39a;margin-bottom:10px}
+.item {border:1px solid #363b45;border-radius:13px;background:#1c2028;margin:10px 0;padding:15px 16px;box-shadow:0 3px 12px #00000016}
+.item:last-child {border-bottom:1px solid #363b45}
+.item.member-item {border-left:3px solid #ff8a38}
+.item .row {gap:6px 12px}
+.item .pills {display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 5px;align-items:center}
+.pill.fc-chip {display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700;line-height:1.3;white-space:normal;border-width:1px;border-style:solid}
+.fc-chip.fc-strength {color:#ffca9e;background:#38271e;border-color:#8a5839}
+.fc-chip.fc-cardio {color:#d9b8ee;background:#30253a;border-color:#675078}
+.fc-chip.fc-boxing {color:#e8b3af;background:#372529;border-color:#83545a}
+.fc-chip.fc-yoga {color:#a6d6bd;background:#20362d;border-color:#456b58}
+.fc-chip.fc-dance {color:#e2b8e9;background:#34263a;border-color:#77577e}
+.fc-chip.fc-recovery {color:#a9d8c7;background:#203630;border-color:#497264}
+.fc-chip.fc-general {color:#d0d5dd;background:#292d34;border-color:#5b626e}
+.fc-chip.fc-zone-upper {color:#b8d0ff;background:#202d45;border-color:#4d709f}
+.fc-chip.fc-zone-lower {color:#a6e5bf;background:#1f352c;border-color:#4b8062}
+.fc-chip.fc-zone-mixed {color:#cbbdf5;background:#30283f;border-color:#695887}
+.fc-chip.fc-effort-reduced,.fc-chip.fc-diff-easy {color:#a6e5bf;background:#1f352c;border-color:#4b8062}
+.fc-chip.fc-effort-standard,.fc-chip.fc-diff-moderate {color:#f4ce95;background:#392d1e;border-color:#88683d}
+.fc-chip.fc-effort-challenging,.fc-chip.fc-diff-hard {color:#f0afb5;background:#3a252c;border-color:#87515d}
+.fc-chip.fc-muscles {color:#a6dfe4;background:#1d3238;border-color:#416b76}
+.fc-chip.fc-neutral {color:#d8dce4;background:#292d34;border-color:#575f6e}
+.fc-legend {display:flex;flex-wrap:wrap;gap:7px 12px;align-items:center;margin:12px 0 17px;font-size:11px;color:#b9bec9}
+.fc-legend .pill {font-weight:650}
+.fc-member-summary {margin:10px 0 3px;line-height:1.55;color:#e6e8ed;font-size:13px}
+@media(max-width:650px){.item{padding:13px 12px}.pill.fc-chip{font-size:10.5px;padding:5px 8px}.fc-legend{gap:6px}}
+
+/* Expandable WOD highlights: Member-facing, no trainer prescriptions. */
+.fc-highlights{border-top:1px solid #353b47;margin-top:13px;padding-top:8px}
+.fc-highlights summary{cursor:pointer;list-style:none;color:#ffb17a;font-size:13px;font-weight:750;padding:8px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+.fc-highlights summary::-webkit-details-marker{display:none}
+.fc-highlights summary:focus-visible{outline:2px solid #ff8a38;outline-offset:3px;border-radius:4px}
+.fc-hl-chevron{font-size:20px;line-height:1;transition:transform .15s ease}
+.fc-highlights[open] .fc-hl-chevron{transform:rotate(180deg)}
+.fc-hl-content{background:#151a21;border:1px solid #303743;border-radius:10px;padding:12px 14px;margin:4px 0 2px;color:#d9e0e9;font-size:13px;line-height:1.55}
+.fc-hl-content ul{margin:8px 0 2px;padding-left:19px}
+.fc-hl-content li+li{margin-top:7px}
+.fc-hl-focus{margin:0 0 9px;color:#e9edf3}
+.fc-hl-focus strong{color:#ffb17a}
+@media (prefers-reduced-motion:reduce){.fc-hl-chevron{transition:none}}
+
+
+/* Member rolling ten-workout-day planner */
+.fc-roll-header{background:#1c2028;border:1px solid #3d444f;border-radius:14px;padding:18px;margin-top:18px}
+.fc-roll-header h2{font-size:17px;margin:0 0 6px;color:#f9e9db}
+.fc-roll-header p{color:#c5cbd4;font-size:12px;margin:0 0 6px;line-height:1.5}
+.fc-dates{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.fc-date-link{border:1px solid #4c535e;color:#e7e9ee;background:#252a33;border-radius:9px;cursor:pointer;min-width:73px;padding:10px 9px;text-align:center;font:650 12px/1.45 system-ui,sans-serif}
+.fc-date-link b{display:block;font-size:15px;font-weight:800;color:#ffbd8e}
+.fc-date-link.today{border-color:#ff9a56;background:#433023}
+.fc-date-link.pending{opacity:.72;border-style:dashed}
+.fc-date-link:focus-visible,.fc-search:focus-visible{outline:2px solid #ffab73;outline-offset:3px}
+.fc-control{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0}
+.fc-search{background:#22252e;border:1px solid #515664;border-radius:8px;padding:10px 12px;color:#fff;min-height:42px;min-width:230px;flex:1}
+.fc-meta{font-size:12px;color:#c3cad4}
+.fc-alert{color:#f8c696;border:1px dashed #a66b3e;background:#39291f;border-radius:9px;padding:12px 14px;margin-top:11px;font-size:12px}
+.fc-pending{border:1px dashed #6a7788;border-radius:10px;background:#1b2029;padding:16px;color:#cbd2de;font-size:13px}
+.fc-dates .fc-date-link:hover{border-color:#ffbc8e}
+.day:focus{outline:none}
+.day[hidden],.item[hidden]{display:none!important}
+.fc-status{font-size:12px;color:#cbd1da;margin-top:9px}
+.day.fc-spotlight .dayHead{border-color:#eb9454;box-shadow:inset 3px 0 #ff9448;background:#38312d}
+.day.fc-spotlight .dayHead::after{content:' · Today';color:#ffd2b1;font-size:11px;text-transform:uppercase}
+@media(max-width:650px){.fc-dates{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.fc-date-link{flex:0 0 auto;min-width:71px}}
+
+/* Responsive member single-day planner */
+.fc-day-dock{position:sticky;top:0;z-index:50;background:rgba(23,26,32,.98);backdrop-filter:blur(12px);border:1px solid #424955;border-radius:13px;padding:10px 12px 12px;margin:12px 0 0;box-shadow:0 8px 20px #0005}
+.fc-dock-row{display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:30px}
+.fc-dock-label{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fc-dock-label strong{font-size:14px;color:#faf5f0}
+.fc-dock-label span{color:#bdc8d7;font-size:12px}
+.fc-dock-hint{font-size:11px;color:#b9c0ce}
+.fc-dates{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;gap:7px;margin:6px 0 0;scrollbar-width:thin;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:2px 1px 5px}
+.fc-date-link{flex:0 0 auto;min-width:72px;min-height:66px;padding:7px 10px;scroll-snap-align:start;touch-action:pan-x pan-y}
+.fc-date-link[aria-pressed="true"]{border:2px solid #ffab73;background:#573525;box-shadow:inset 0 0 0 1px #e17f48;color:#fff}
+.fc-date-link[aria-pressed="true"] b{color:#fff}
+.fc-day-pager{display:flex;align-items:center;justify-content:space-between;gap:9px;margin:22px 0 8px;padding:13px 0;border-top:1px solid #373d48}
+.fc-pager-btn{background:#292e39;border:1px solid #626c79;color:#fff;border-radius:10px;padding:12px 13px;min-height:45px;font-weight:750;cursor:pointer;font-size:13px}
+.fc-pager-btn:disabled{opacity:.4;cursor:not-allowed}
+.fc-pager-btn:focus-visible{outline:2px solid #ffaf77;outline-offset:2px}
+.fc-guide summary{cursor:pointer;color:#eec6a9;font-size:12px;font-weight:650;min-height:40px;padding:9px 0}.fc-guide .fc-legend{margin:2px 0 8px}.fc-hidden-empty{border:1px dashed #666f7b;padding:20px;border-radius:12px;color:#cbd3df}
+.day{margin-top:8px}
+.day .dayHead{font-size:16px}
+.item .title{font-size:18px}
+.fc-control{margin:14px 0 10px}
+.fc-legend{margin:8px 0}
+.fc-status{margin-top:8px}
+@media(min-width:651px){.fc-guide summary{display:none}}
+@media(min-width:900px){.fc-roll-header{padding:17px 19px;margin-top:14px}.fc-day-dock{padding:9px 14px}.fc-dates{justify-content:space-between}.fc-date-link{flex:1 1 0;min-width:0}}
+@media(max-width:650px){.hero p,.hero .tiny,.fc-roll-header>p:first-of-type{display:none}.hero h1{margin:5px 0 4px;font-size:21px}.fc-roll-header{padding:11px}.fc-roll-header h2{font-size:15px;margin-bottom:4px}.fc-guide summary{padding:8px 0;min-height:40px}.fc-day-dock{margin:8px -12px 0;border-radius:0;border-left:0;border-right:0;padding:8px 12px 7px}.fc-dock-row{align-items:flex-start}.fc-dock-label{gap:2px;flex-direction:column}.fc-dock-hint{padding-top:3px}.fc-date-link{min-width:66px;min-height:60px;padding:6px 9px}.hero h1{font-size:22px}.fc-roll-header{margin-top:12px;padding:13px}.fc-roll-header h2{font-size:16px}.fc-pager-btn{padding:11px 8px;font-size:12px}.fc-day-pager{gap:5px}.fc-control{margin:12px 0 9px}.fc-search{min-width:0;width:100%;flex-basis:100%}.item .pills{gap:5px}}
+@media(prefers-reduced-motion:reduce){.fc-day-dock{scroll-behavior:auto}}
+</style></head><body>
+<header class="head"><div class="headinner"><div class="brand"><span class="mark">FC</span>FIT CLUB</div><div class="tiny">MEMBER VIEW · GOMTINAGAR</div></div></header>
+<nav aria-label="Switch branch" style="max-width:1080px;margin:12px auto 0;padding:0 20px;font:700 13px/1.6 system-ui,sans-serif"><a href="./index.html" style="color:#ffc093;text-decoration:underline">← View Gomtinagar workouts</a></nav><main class="container"><div class="hero"><div class="tiny">WORKOUT OVERVIEW</div><h1>Mahanagar · Plan your next 10 workout days</h1><p>Upcoming classes and expandable workout highlights. Sundays are excluded.</p></div>
+<div class="fc-roll-header"><h2>Upcoming workout schedule</h2><p>Always see the next 10 Monday–Saturday dates. The schedule updates automatically in India time as each new day begins.</p><p id="dateRange" class="fc-meta" aria-live="polite">Loading schedule…</p><div id="status" class="fc-status" role="status" aria-live="polite">Loading published classes…</div><p id="scheduleNote" class="fc-alert" hidden></p></div>
+<div class="fc-day-dock" id="dateDock"><div class="fc-dock-row"><div class="fc-dock-label"><strong id="selectedDayLabel">Choose a workout day</strong><span id="selectedDayCount">Select a date to view classes</span></div><span class="fc-dock-hint">Swipe dates ↔</span></div><nav id="dateNav" class="fc-dates" aria-label="Jump to a workout day"></nav></div>
+<div class="fc-control"><input id="searchInput" class="fc-search" type="search" placeholder="Find a workout or class" aria-label="Search published classes"><span class="fc-meta" id="count"></span></div>
+<details class="fc-guide" id="colourGuide" open><summary>Workout colour guide</summary><div class="fc-legend" aria-label="Workout colour key"><span class="pill fc-chip fc-zone-upper">Upper body</span><span class="pill fc-chip fc-zone-lower">Lower body</span><span class="pill fc-chip fc-zone-mixed">Mixed / full body</span><span class="pill fc-chip fc-effort-standard">Standard intensity</span><span class="pill fc-chip fc-effort-challenging">Challenging intensity</span></div>
+</details>
+<div id="sessions" aria-label="Upcoming workout sessions"></div>
+<div id="noResults" class="fc-hidden-empty" hidden>No matching workouts for this day.</div>
+<div class="fc-day-pager" aria-label="Change workout day"><button type="button" id="previousDay" class="fc-pager-btn">← Previous day</button><span id="pagerPosition" class="fc-meta"></span><button type="button" id="nextDay" class="fc-pager-btn">Next day →</button></div>
+<p class="foot">FIT CLUB · Mahanagar · Schedules are published monthly by the club. Details may change before class.</p></main><script>(function(){
+'use strict';
+const CLUB_TZ='Asia/Kolkata',BRANCH='mahanagar',FIRST_PUBLISHED_MONTH='2026-11';
+const $=id=>document.getElementById(id);
+const container=$('sessions'),nav=$('dateNav'),status=$('status'),note=$('scheduleNote'),count=$('count'),search=$('searchInput');
+const cache=new Map();
+const dateRE=/^\d{4}-\d{2}-\d{2}$/;
+function iso(d){return d.toISOString().slice(0,10)}
+function parse(s){return new Date(s+'T12:00:00Z')}
+function plus(s,n){const x=parse(s);x.setUTCDate(x.getUTCDate()+n);return iso(x)}
+function dow(s){return parse(s).getUTCDay()}
+function clubToday(){
+ const parts=new Intl.DateTimeFormat('en-GB',{timeZone:CLUB_TZ,day:'2-digit',month:'2-digit',year:'numeric'}).formatToParts(new Date());
+ const p={};parts.forEach(x=>p[x.type]=x.value);
+ return p.year+'-'+p.month+'-'+p.day;
+}
+function days10(start){let d=start,out=[];while(out.length<10){if(dow(d)!==0)out.push(d);d=plus(d,1)}return out}
+function dateLabel(s){return parse(s).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'})}
+function monthLabel(s){return parse(s).toLocaleDateString('en-GB',{month:'long',year:'numeric',timeZone:'UTC'})}
+const firstDay=FIRST_PUBLISHED_MONTH+'-01';
+function initialStart(){const now=clubToday();return now<firstDay?firstDay:now}
+async function loadMonth(month){
+ if(cache.has(month))return cache.get(month);
+ let promise=(async()=>{
+  const path='./months/'+BRANCH+'/'+month+'.html';
+  let response;
+  try{response=await fetch(path,{cache:'no-store'})}catch(e){return {error:'network',message:'Unable to load '+month+'. Check your connection.'}}
+  if(response.status===404)return {error:'unpublished'};
+  if(!response.ok)return {error:'network',message:'Schedule is temporarily unavailable ('+response.status+').' };
+  const markup=await response.text();
+  const doc=new DOMParser().parseFromString(markup,'text/html');
+  const title=(doc.title||'').toLowerCase();
+  if(!title.includes('fit club')||!title.includes('member')||!title.includes('mahanagar'))return {error:'invalid',message:'The published monthly file is not a Mahanagar Member schedule.'};
+  const sessions=doc.getElementById('sessions');
+  if(!sessions)return {error:'invalid',message:'The published monthly file contains no session list.'};
+  const days=new Map();
+  Array.from(sessions.querySelectorAll(':scope > section.day')).forEach(section=>{
+   const date=section.dataset.group;
+   if(!dateRE.test(date)||date.slice(0,7)!==month||days.has(date))return;
+   const cards=section.querySelectorAll(':scope > article.member-item');
+   if(cards.length===0)return;
+   days.set(date,section);
+  });
+  if(!days.size)return {error:'invalid',message:'No Member classes were found in the monthly file.'};
+  return {days};
+ })();cache.set(month,promise);return promise;
+}
+let activeRender=0;
+let currentDay='',needsFutureMonth=false,selectedDate='',activeRange=[];
+async function render(){
+ const serial=++activeRender;
+ const today=clubToday(),start=initialStart(),range=days10(start);
+ activeRange=range;if(!range.includes(selectedDate))selectedDate=range[0];
+ currentDay=today;
+ const months=Array.from(new Set(range.map(d=>d.slice(0,7))));
+ status.textContent='Loading published classes…';note.hidden=true;nav.replaceChildren();container.replaceChildren();
+ const results=new Map(await Promise.all(months.map(async m=>[m,await loadMonth(m)])));
+ if(serial!==activeRender)return;
+ const frag=document.createDocumentFragment();const navFrag=document.createDocumentFragment();
+ let numberOfClasses=0,readyDays=0,missingMonths=new Set(),badMonths=new Set();
+ range.forEach((day,index)=>{
+  const month=day.slice(0,7),found=results.get(month),section=found.days?.get(day);
+  const button=document.createElement('button');button.type='button';button.className='fc-date-link';
+  button.innerHTML='<span>'+parse(day).toLocaleDateString('en-GB',{weekday:'short',timeZone:'UTC'})+'</span><b>'+parse(day).getUTCDate()+'</b><span>'+parse(day).toLocaleDateString('en-GB',{month:'short',timeZone:'UTC'})+'</span>';
+  if(day===today)button.classList.add('today');
+  if(found.error)button.classList.add('pending');
+  button.setAttribute('aria-label','View '+dateLabel(day));button.setAttribute('aria-pressed',String(day===selectedDate));
+  button.addEventListener('click',()=>selectDate(day,true));
+  navFrag.appendChild(button);
+  const el=section?document.importNode(section,true):document.createElement('section');
+  el.classList.add('day');el.dataset.group=day;el.id='fc-day-'+day;el.tabIndex=-1;
+  if(day===today)el.classList.add('fc-spotlight');
+  if(!section){
+   const heading=document.createElement('div');heading.className='dayHead';heading.textContent=dateLabel(day);el.appendChild(heading);
+   const msg=document.createElement('div');msg.className='fc-pending';
+   if(found.error==='unpublished'){
+      msg.textContent='Next month’s schedule coming soon · This date has not been published.';
+      missingMonths.add(month);
+   }else if(found.error){msg.textContent=found.message||'Schedule not available.';badMonths.add(month)}
+   else msg.textContent='No classes scheduled for this date.';
+   el.appendChild(msg);
+  }else{
+   const cards=el.querySelectorAll(':scope > article.member-item');
+   numberOfClasses+=cards.length;
+   readyDays++;
+   el.querySelectorAll('script,iframe,object').forEach(x=>x.remove());
+  }
+  frag.appendChild(el);
+ });
+ nav.appendChild(navFrag);container.appendChild(frag);
+ $('dateRange').textContent=dateLabel(range[0])+' – '+dateLabel(range[range.length-1]);
+ const pref=today<firstDay?'The schedule has not started. Showing the first ten available Monday–Saturday dates. ':'';
+ status.textContent=pref+readyDays+' of 10 dates have published workouts · '+numberOfClasses+' classes.';
+ needsFutureMonth=missingMonths.size>0 || badMonths.size>0;
+ if(needsFutureMonth){
+  note.hidden=false;
+  note.textContent=badMonths.size?'Some approved monthly schedules could not be loaded. Please try again or contact the club.':'The following month has not been published yet. Remaining approved workouts are visible; missing future dates will appear automatically after the monthly release.';
+ }
+ applySearch();
+}
+function applySearch(){
+ const q=search.value.trim().toLocaleLowerCase(),allDays=container.querySelectorAll('section.day');
+ let shown=0;
+ allDays.forEach(day=>{
+   const cards=day.querySelectorAll(':scope > article.member-item');
+   if(!cards.length){day.hidden=day.dataset.group!==selectedDate;return;}
+   let visible=0;
+   cards.forEach(card=>{const yes=day.dataset.group===selectedDate&&(!q||(card.dataset.search||card.textContent||'').toLocaleLowerCase().includes(q));card.hidden=!yes;if(yes){shown++;visible++}});
+   day.hidden=day.dataset.group!==selectedDate;
+ });
+ const label=$('selectedDayLabel'),labelCount=$('selectedDayCount');
+ const current=container.querySelector('#fc-day-'+selectedDate);
+ label.textContent=selectedDate?dateLabel(selectedDate):'Choose a workout day';
+ labelCount.textContent=shown+(shown===1?' class':' classes')+(q?' matching search':' on selected day');
+ $('noResults').hidden=shown!==0 || !current?.querySelector('article.member-item');
+ if(selectedDate&&current&&!current.querySelector('article.member-item'))$('noResults').hidden=true;
+ const idx=activeRange.indexOf(selectedDate);
+ $('previousDay').disabled=idx<=0;
+ $('nextDay').disabled=idx<0||idx>=activeRange.length-1;
+ $('pagerPosition').textContent=(idx+1)+' of '+activeRange.length+' workout days';
+ nav.querySelectorAll('.fc-date-link').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===idx)));
+ count.textContent=q?shown+' matching classes':shown+' classes today';
+}
+function selectDate(day,shouldScroll){
+ if(!activeRange.includes(day))return;
+ selectedDate=day;
+ applySearch();
+ const active=nav.querySelector('.fc-date-link[aria-pressed="true"]');
+ if(active){const left=active.offsetLeft-nav.offsetLeft-(nav.clientWidth-active.clientWidth)/2;nav.scrollTo({left,behavior:'smooth'});}
+ if(shouldScroll){const dock=$('dateDock');const pos=dock.getBoundingClientRect().top+window.scrollY;window.scrollTo({top:Math.max(0,pos-6),behavior:'smooth'});}
+}
+$('previousDay').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)-1],true));
+$('nextDay').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)+1],true));
+nav.addEventListener('keydown',e=>{
+ if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+ e.preventDefault();const i=activeRange.indexOf(selectedDate);
+ const next=e.key==='Home'?0:e.key==='End'?activeRange.length-1:Math.max(0,Math.min(activeRange.length-1,i+(e.key==='ArrowLeft'?-1:1)));
+ selectDate(activeRange[next],false);nav.querySelectorAll('.fc-date-link')[next]?.focus();
+});
+const colourGuide=$('colourGuide');if(window.matchMedia('(max-width:650px)').matches)colourGuide.open=false;
+search.addEventListener('input',applySearch);
+render();
+let lastDay=clubToday();
+setInterval(()=>{const d=clubToday();if(d!==lastDay){lastDay=d;cache.clear();render()}},60000);
+window.addEventListener('focus',()=>{const d=clubToday();if(d!==lastDay||needsFutureMonth){lastDay=d;cache.clear();render()}});
+// Retry unpublished months while the page remains open; GitHub can publish the next month at any time.
+setInterval(()=>{if(needsFutureMonth){cache.clear();render()}},10*60*1000);
+})();</script></body></html>

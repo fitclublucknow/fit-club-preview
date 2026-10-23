@@ -92,12 +92,43 @@
 @media(min-width:900px){.fc-roll-header{padding:17px 19px;margin-top:14px}.fc-day-dock{padding:9px 14px}.fc-dates{justify-content:space-between}.fc-date-link{flex:1 1 0;min-width:0}}
 @media(max-width:650px){.hero p,.hero .tiny,.fc-roll-header>p:first-of-type{display:none}.hero h1{margin:5px 0 4px;font-size:21px}.fc-roll-header{padding:11px}.fc-roll-header h2{font-size:15px;margin-bottom:4px}.fc-guide summary{padding:8px 0;min-height:40px}.fc-day-dock{margin:8px -12px 0;border-radius:0;border-left:0;border-right:0;padding:8px 12px 7px}.fc-dock-row{align-items:flex-start}.fc-dock-label{gap:2px;flex-direction:column}.fc-dock-hint{padding-top:3px}.fc-date-link{min-width:66px;min-height:60px;padding:6px 9px}.hero h1{font-size:22px}.fc-roll-header{margin-top:12px;padding:13px}.fc-roll-header h2{font-size:16px}.fc-pager-btn{padding:11px 8px;font-size:12px}.fc-day-pager{gap:5px}.fc-control{margin:12px 0 9px}.fc-search{min-width:0;width:100%;flex-basis:100%}.item .pills{gap:5px}}
 @media(prefers-reduced-motion:reduce){.fc-day-dock{scroll-behavior:auto}}
+/* Mobile-first member usability */
+.fc-filter-bar{max-width:1080px;margin:0 auto;display:flex;align-items:end;gap:12px;padding:14px 20px 0}
+.fc-filter-bar label{display:flex;flex-direction:column;gap:5px;font:800 11px system-ui,sans-serif;color:#c6d0dc;min-width:0;flex:1}
+.fc-filter-bar label:last-child{flex:1.6}
+.fc-filter-bar select{width:100%;background:#252c36;color:#fff;border:1px solid #536071;border-radius:10px;padding:10px 9px;min-height:46px;font:700 13px system-ui,sans-serif}
+.fc-filter-bar select:focus-visible,.fc-dock-actions button:focus-visible,.fc-jump-label select:focus-visible{outline:2px solid #ffb781;outline-offset:2px}
+.fc-dashboard{background:linear-gradient(115deg,#29252b,#202630 75%,#1c222a);border:1px solid #475260;border-radius:17px;padding:18px 20px 14px;margin:4px 0 14px}
+.fc-dashboard-head{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.fc-eyebrow{color:#ffa96c;font-size:10px;font-weight:850;letter-spacing:1.1px;margin-bottom:7px}
+.fc-dashboard h1{font-size:clamp(21px,3vw,28px);line-height:1.2;margin:0 0 6px;letter-spacing:-.5px}
+.fc-separator{color:#86929e}
+.fc-dashboard-head p{font-size:13px;color:#c0cbd6;margin:0}
+.fc-dashboard-stats{display:flex;gap:8px;flex-shrink:0}
+.fc-dashboard-stats>div{background:#111a27a8;border:1px solid #46515e;border-radius:11px;text-align:center;padding:11px;min-width:98px}
+.fc-dashboard-stats strong{display:block;font-size:23px;line-height:1.1;color:#fff;font-variant-numeric:tabular-nums}
+.fc-dashboard-stats span{display:block;font-size:10px;color:#c4cfda;margin-top:5px}
+.fc-dashboard-meta{border-top:1px solid #404a57;margin-top:13px;padding-top:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+#dateRange{font-size:12px;color:#ffc094;font-weight:750}
+.fc-dashboard #status{font-size:11px;color:#c4cfda;margin:0}
+.fc-dashboard .fc-alert{margin-bottom:0}
+.fc-dock-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.fc-dock-button{min-height:40px;min-width:40px;background:#2c3542;border:1px solid #69788b;color:#fff;border-radius:9px;padding:8px 11px;font-weight:800;cursor:pointer}
+#jumpToday{color:#ffc095;border-color:#986b4c}
+.fc-dock-button:disabled{opacity:.33;cursor:not-allowed}
+.fc-jump-label{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:750;color:#c7d0dd}
+.fc-jump-label select{background:#242c37;border:1px solid #667484;border-radius:9px;color:#fff;padding:8px;min-height:40px;max-width:150px}
+.fc-date-link[aria-pressed=true]{background:linear-gradient(155deg,#70412d,#3c2a24);border-color:#ffc293;box-shadow:0 0 0 1px #ffaa6a}
+.fc-date-link[aria-pressed=true] b{font-size:18px}
+#sessions>.day>.item.member-item{background:#202630;border:1px solid #404b59;border-left:3px solid #ff9546;border-radius:14px;margin:10px 0 12px;padding:15px}
+#sessions>.day>.item.member-item .title{font-size:19px;letter-spacing:-.3px;margin:3px 0}
+#sessions>.day>.item.member-item .time{font-weight:850;color:#ffc39a}
+#sessions>.day>.item.member-item .fc-member-summary{font-size:14px;line-height:1.6;color:#e8eff7}
+#sessions>.day>.item.member-item .pill.fc-chip{font-size:10px;padding:5px 8px}
+@media(max-width:650px){.fc-filter-bar{padding:10px 12px 0;gap:8px}.fc-filter-bar label{font-size:10px}.fc-filter-bar select{font-size:12px;min-height:44px;padding:8px 6px}.fc-dashboard{padding:13px;border-radius:12px;margin-bottom:8px}.fc-dashboard-head{flex-direction:column;align-items:stretch;gap:12px}.fc-dashboard h1{font-size:21px}.fc-dashboard-stats{width:100%}.fc-dashboard-stats>div{flex:1;padding:9px}.fc-dashboard-stats strong{font-size:20px}.fc-dock-row{flex-wrap:wrap}.fc-dock-label{flex:1 1 100%}.fc-dock-actions{width:100%;justify-content:space-between;gap:5px}.fc-jump-label{flex:1;justify-content:center}.fc-jump-label select{max-width:118px;font-size:11px}#sessions>.day>.item.member-item{padding:13px 12px}#sessions>.day>.item.member-item .title{font-size:17px}#sessions>.day>.item.member-item .fc-member-summary{font-size:13px}}
 </style></head><body>
 <header class="head"><div class="headinner"><div class="brand"><span class="mark">FC</span>FIT CLUB</div><div class="tiny" id="branchTag">MEMBER VIEW · GOMTINAGAR</div></div></header>
-<nav aria-label="Workout library selectors" style="max-width:1080px;margin:14px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font:700 13px/1.6 system-ui,sans-serif"><label for="branchPicker">Branch <select id="branchPicker" style="margin-left:6px;background:#22252e;border:1px solid #515664;border-radius:8px;color:white;padding:9px"><option value="gomtinagar">Gomtinagar</option><option value="mahanagar">Mahanagar</option></select></label><label for="monthPicker">Month <select id="monthPicker" style="margin-left:6px;background:#22252e;border:1px solid #515664;border-radius:8px;color:white;padding:9px"><option value="auto">Upcoming 10 workout days</option><option value="2026-11">November 2026</option><option value="2026-12">December 2026</option></select></label></nav><main class="container"><div class="hero"><div class="tiny">WORKOUT OVERVIEW</div><h1><span id="branchHeading">Gomtinagar</span> · Plan your next 10 workout days</h1><p>Upcoming classes and expandable workout highlights. Sundays are excluded.</p></div>
-<div class="fc-roll-header"><h2>Upcoming workout schedule</h2><p>Always see the next 10 Monday–Saturday dates. The schedule updates automatically in India time as each new day begins.</p><p id="dateRange" class="fc-meta" aria-live="polite">Loading schedule…</p><div id="status" class="fc-status" role="status" aria-live="polite">Loading published classes…</div><p id="scheduleNote" class="fc-alert" hidden></p></div>
-<div class="fc-day-dock" id="dateDock"><div class="fc-dock-row"><div class="fc-dock-label"><strong id="selectedDayLabel">Choose a workout day</strong><span id="selectedDayCount">Select a date to view classes</span></div><span class="fc-dock-hint">Swipe dates ↔</span></div><nav id="dateNav" class="fc-dates" aria-label="Jump to a workout day"></nav></div>
-<div class="fc-control"><input id="searchInput" class="fc-search" type="search" placeholder="Find a workout or class" aria-label="Search published classes"><span class="fc-meta" id="count"></span></div>
+<nav class="fc-filter-bar" aria-label="Workout library selectors"><label for="branchPicker">Club branch<select id="branchPicker"><option value="gomtinagar">Gomtinagar</option><option value="mahanagar">Mahanagar</option></select></label><label for="monthPicker">View schedule<select id="monthPicker"><option value="auto">Upcoming 10 workout days</option><option value="2026-11">November 2026</option><option value="2026-12">December 2026</option></select></label></nav><main class="container"><section class="fc-dashboard" aria-label="Member workout overview"><div class="fc-dashboard-head"><div><div class="fc-eyebrow">MEMBER WORKOUT LIBRARY</div><h1><span id="branchHeading">Gomtinagar</span><span class="fc-separator"> / </span><span id="periodHeading">Upcoming workouts</span></h1><p id="periodDescription">Next ten published workout dates.</p></div><div class="fc-dashboard-stats"><div><strong id="overviewDays">—</strong><span>Workout dates</span></div><div><strong id="overviewClasses">—</strong><span>Classes</span></div></div></div><div class="fc-dashboard-meta"><span id="dateRange" aria-live="polite">Loading schedule…</span><span id="status" role="status" aria-live="polite">Loading published classes…</span></div><p id="scheduleNote" class="fc-alert" hidden></p></section><div class="fc-day-dock" id="dateDock"><div class="fc-dock-row"><div class="fc-dock-label"><strong id="selectedDayLabel">Choose a workout day</strong><span id="selectedDayCount">Select a date to view classes</span></div><div class="fc-dock-actions"><button type="button" id="jumpToday" class="fc-dock-button" hidden>Today</button><label id="jumpLabel" class="fc-jump-label" hidden>Jump to date<select id="dayJump" aria-label="Jump to workout date"></select></label><button type="button" id="dockPrevious" class="fc-dock-button" aria-label="Previous workout day">←</button><button type="button" id="dockNext" class="fc-dock-button" aria-label="Next workout day">→</button></div></div><nav id="dateNav" class="fc-dates" aria-label="Jump to a workout day"></nav></div><div class="fc-control"><input id="searchInput" class="fc-search" type="search" placeholder="Find a workout or class" aria-label="Search published classes"><span class="fc-meta" id="count"></span></div>
 <details class="fc-guide" id="colourGuide" open><summary>Workout colour guide</summary><div class="fc-legend" aria-label="Workout colour key"><span class="pill fc-chip fc-zone-upper">Upper body</span><span class="pill fc-chip fc-zone-lower">Lower body</span><span class="pill fc-chip fc-zone-mixed">Mixed / full body</span><span class="pill fc-chip fc-effort-standard">Standard intensity</span><span class="pill fc-chip fc-effort-challenging">Challenging intensity</span></div>
 </details>
 <div id="sessions" aria-label="Upcoming workout sessions"></div>
@@ -113,7 +144,7 @@ const $=id=>document.getElementById(id);
 const container=$('sessions'),nav=$('dateNav'),status=$('status'),note=$('scheduleNote'),count=$('count'),search=$('searchInput');
 const cache=new Map();
 const branchPicker=document.getElementById("branchPicker"),monthPicker=document.getElementById("monthPicker");
-function updateLabels(){const label=BRANCH==="mahanagar"?"Mahanagar":"Gomtinagar";document.getElementById("branchTag").textContent="MEMBER VIEW · "+label.toUpperCase();document.getElementById("branchHeading").textContent=label;document.getElementById("branchFooter").textContent=label;document.title="Fit Club · Member · "+label;branchPicker.value=BRANCH;monthPicker.value=selectedMonth;}
+function updateLabels(){const label=BRANCH==="mahanagar"?"Mahanagar":"Gomtinagar";document.getElementById("branchTag").textContent="MEMBER VIEW · "+label.toUpperCase();document.getElementById("branchHeading").textContent=label;document.getElementById("branchFooter").textContent=label;const full=selectedMonth!=='auto';document.getElementById("periodHeading").textContent=full?monthLabel(selectedMonth+'-01'):'Upcoming workouts';document.getElementById("periodDescription").textContent=full?'Every published Monday–Saturday workout date in the month.':'Next 10 Monday–Saturday workout dates, refreshed automatically in India time.';document.getElementById("jumpLabel").hidden=!full;document.title="Fit Club · Member · "+label;branchPicker.value=BRANCH;monthPicker.value=selectedMonth;}
 function setView(){const p=new URLSearchParams();if(BRANCH!=="gomtinagar")p.set("branch",BRANCH);if(selectedMonth!=="auto")p.set("month",selectedMonth);history.replaceState(null,"",location.pathname+(p.size?"?"+p:""));cache.clear();selectedDate="";updateLabels();render();}
 branchPicker.addEventListener("change",()=>{BRANCH=branchPicker.value;setView()});
 monthPicker.addEventListener("change",()=>{selectedMonth=monthPicker.value;setView()});
@@ -202,7 +233,7 @@ async function render(){
   }
   frag.appendChild(el);
  });
- nav.appendChild(navFrag);container.appendChild(frag);
+ nav.appendChild(navFrag);container.appendChild(frag);const jump=$('dayJump');jump.replaceChildren();range.forEach(day=>{const option=new Option(dateLabel(day),day);jump.add(option)});$('overviewDays').textContent=readyDays;$('overviewClasses').textContent=numberOfClasses;$('jumpToday').hidden=!range.includes(today);
  $('dateRange').textContent=dateLabel(range[0])+' – '+dateLabel(range[range.length-1]);
  const pref=selectedMonth!=='auto'?'Full '+monthLabel(selectedMonth+'-01')+' schedule · ':today<firstDay?'The schedule has not started. Showing the first ten available Monday–Saturday dates. ':'';
  status.textContent=pref+readyDays+' of '+range.length+' workout dates have published classes · '+numberOfClasses+' classes.';
@@ -229,9 +260,9 @@ function applySearch(){
  labelCount.textContent=shown+(shown===1?' class':' classes')+(q?' matching search':' on selected day');
  $('noResults').hidden=shown!==0 || !current?.querySelector('article.member-item');
  if(selectedDate&&current&&!current.querySelector('article.member-item'))$('noResults').hidden=true;
- const idx=activeRange.indexOf(selectedDate);
+ $('dayJump').value=selectedDate;const idx=activeRange.indexOf(selectedDate);
  $('previousDay').disabled=idx<=0;
- $('nextDay').disabled=idx<0||idx>=activeRange.length-1;
+ $('nextDay').disabled=idx<0||idx>=activeRange.length-1;$('dockPrevious').disabled=idx<=0;$('dockNext').disabled=idx<0||idx>=activeRange.length-1;
  $('pagerPosition').textContent=(idx+1)+' of '+activeRange.length+' workout days';
  nav.querySelectorAll('.fc-date-link').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===idx)));
  count.textContent=q?shown+' matching classes':shown+' classes on selected day';
@@ -245,7 +276,7 @@ function selectDate(day,shouldScroll){
  if(shouldScroll){const dock=$('dateDock');const pos=dock.getBoundingClientRect().top+window.scrollY;window.scrollTo({top:Math.max(0,pos-6),behavior:'smooth'});}
 }
 $('previousDay').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)-1],true));
-$('nextDay').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)+1],true));
+$('nextDay').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)+1],true));$('dockPrevious').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)-1],false));$('dockNext').addEventListener('click',()=>selectDate(activeRange[activeRange.indexOf(selectedDate)+1],false));$('dayJump').addEventListener('change',()=>selectDate($('dayJump').value,false));$('jumpToday').addEventListener('click',()=>{const day=clubToday();if(activeRange.includes(day))selectDate(day,false)});
 nav.addEventListener('keydown',e=>{
  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
  e.preventDefault();const i=activeRange.indexOf(selectedDate);

@@ -1,4 +1,87 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="color-scheme" content="dark"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; frame-src 'self' about: blob:; img-src data:; object-src 'none'; base-uri 'none'; form-action 'self'"><title>Fit Club · Trainer Portal</title><style>:root{--bg:#101116;--panel:#1c2028;--line:#343a45;--accent:#ff8a38;--muted:#bcc1cd}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f8fa;font:14px/1.5 system-ui,sans-serif}header{background:#17191e;border-bottom:1px solid var(--line);padding:18px max(18px,calc((100vw - 1080px)/2));font-size:21px;font-weight:800}header b{background:var(--accent);color:#171412;border-radius:7px;padding:6px 9px;margin-right:10px}.wrap{max-width:1080px;margin:0 auto;padding:20px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:16px 0}.controls label{display:grid;gap:5px;font-size:12px;color:#d0d5df;font-weight:750}.controls select,input{background:#22252e;color:#fff;border:1px solid #566071;border-radius:9px;padding:11px;min-height:43px;font:inherit}.controls select{min-width:175px}.panel{background:#1b2029;border:1px solid #384150;border-radius:14px;padding:18px;margin:14px 0}h1{font-size:25px;margin:3px 0}.muted{color:var(--muted)}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}input{min-width:240px;flex:1}button{border:0;border-radius:9px;padding:11px 16px;min-height:43px;background:var(--accent);color:#201b18;font-weight:800;cursor:pointer}button.secondary{background:#343d4c;color:#fff}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #ffac74;outline-offset:2px}#status{min-height:23px;color:#ffc39a}iframe{width:100%;min-height:78vh;border:1px solid #3e4653;border-radius:12px;background:#101116}#viewerBox[hidden],#accessPanel[hidden]{display:none}@media(max-width:650px){.wrap{padding:12px}h1{font-size:22px}.controls select{min-width:140px}}</style></head><body><header><b>FC</b> FIT CLUB</header><div class="wrap"><h1>Trainer Workout Library</h1><p class="muted">Detailed coaching prescriptions · trainer access required</p><div class="panel" id="accessPanel"><strong>Trainer verification</strong><p class="muted">Choose your branch and enter your assigned trainer access key. You can select a workout month after verification.</p><div class="controls"><label>Branch<select id="branch"><option value="gomtinagar">Gomtinagar</option><option value="mahanagar">Mahanagar</option></select></label></div><form id="unlockForm" class="inline"><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Trainer access key" required><button type="submit">Verify &amp; continue</button></form><p id="status" role="status" aria-live="polite"></p></div><div id="viewerBox" hidden><div class="controls"><label>Workout period<select id="month"><option value="2026-11">November 2026</option><option value="2026-12">December 2026</option></select></label></div><div class="inline" style="justify-content:space-between;margin:10px 0"><strong id="viewLabel"></strong><button class="secondary" id="lock" type="button">Lock / Change branch or key</button></div><p id="viewerStatus" role="status" aria-live="polite" class="muted"></p><iframe id="viewer" title="Fit Club trainer detailed schedule" sandbox="allow-scripts allow-modals" referrerpolicy="no-referrer"></iframe></div></div><script>(()=>{'use strict';
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="color-scheme" content="dark"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; frame-src 'self' about: blob:; img-src data:; object-src 'none'; base-uri 'none'; form-action 'self'"><title>Fit Club · Trainer Portal</title><style>:root{--bg:#101116;--panel:#1c2028;--line:#343a45;--accent:#ff8a38;--muted:#bcc1cd}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f8fa;font:14px/1.5 system-ui,sans-serif}header{background:#17191e;border-bottom:1px solid var(--line);padding:18px max(18px,calc((100vw - 1080px)/2));font-size:21px;font-weight:800}header b{background:var(--accent);color:#171412;border-radius:7px;padding:6px 9px;margin-right:10px}.wrap{max-width:1080px;margin:0 auto;padding:20px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:16px 0}.controls label{display:grid;gap:5px;font-size:12px;color:#d0d5df;font-weight:750}.controls select,input{background:#22252e;color:#fff;border:1px solid #566071;border-radius:9px;padding:11px;min-height:43px;font:inherit}.controls select{min-width:175px}.panel{background:#1b2029;border:1px solid #384150;border-radius:14px;padding:18px;margin:14px 0}h1{font-size:25px;margin:3px 0}.muted{color:var(--muted)}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}input{min-width:240px;flex:1}button{border:0;border-radius:9px;padding:11px 16px;min-height:43px;background:var(--accent);color:#201b18;font-weight:800;cursor:pointer}button.secondary{background:#343d4c;color:#fff}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #ffac74;outline-offset:2px}#status{min-height:23px;color:#ffc39a}iframe{width:100%;min-height:78vh;border:1px solid #3e4653;border-radius:12px;background:#101116}#viewerBox[hidden],#accessPanel[hidden]{display:none}@media(max-width:650px){.wrap{padding:12px}h1{font-size:22px}.controls select{min-width:140px}}
+/* Mobile-first trainer verification and single-scroll workout reader */
+:root{--border:#414b59}
+body{font-size:15px;line-height:1.55}
+header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.fc-header-caption{font-size:10px;font-weight:800;letter-spacing:1.1px;color:#b9c5d3}
+.wrap{max-width:1080px}
+.fc-login-intro{text-align:center;max-width:580px;margin:24px auto 0}
+.fc-eyebrow{font-size:10px;font-weight:850;letter-spacing:1.3px;color:#ffa96f;margin:0 0 9px}
+.fc-login-intro h1{font-size:clamp(24px,4vw,31px);margin:0 0 9px;letter-spacing:-.5px}
+.fc-login-intro p{margin:0;color:#c4cedb;font-size:14px}
+#accessPanel{max-width:530px;margin:23px auto 20px;padding:25px;border-radius:17px;box-shadow:0 16px 45px #0004}
+.fc-step{font-size:11px;color:#ffb783;font-weight:850;letter-spacing:.9px;margin-bottom:7px}
+.fc-panel-title{font-size:19px;line-height:1.3;margin:0}
+.fc-panel-desc{font-size:13px;color:#c1ccda;margin:8px 0 18px}
+.fc-field{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:800;color:#e5ebf3}
+.fc-field select{width:100%;padding:12px;min-height:49px;border:1px solid #5c6879;border-radius:10px;background:#242c38;color:#fff;font:700 14px system-ui,sans-serif}
+.fc-key-field{margin-top:17px}
+.fc-key-field label{display:block;font-size:12px;font-weight:800;color:#e5ebf3;margin-bottom:7px}
+.fc-key-row{display:flex;gap:8px}
+.fc-key-row input{flex:1;min-width:0;width:100%;min-height:49px;border:1px solid #5c6879;border-radius:10px;background:#242c38;font-size:15px}
+.fc-key-row button{flex:0 0 auto;background:#303a48;border:1px solid #697687;color:#f3f6fa;min-height:49px;padding:10px 13px}
+.fc-verify{width:100%;margin-top:14px;min-height:50px;font-size:15px}
+.fc-private-hint{border-top:1px solid #374252;padding-top:12px;margin-top:12px;color:#aebdce;font-size:12px}
+#status{font-size:13px;font-weight:700}
+#viewerBox{margin-top:9px}
+.fc-trainer-toolbar{position:sticky;top:0;z-index:40;background:#1b222cee;border:1px solid #4b5b6a;backdrop-filter:blur(12px);border-radius:14px;padding:14px 16px;box-shadow:0 10px 24px #0007}
+.fc-trainer-toolbar-main{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fc-verified-badge{color:#9fd9b9;font-size:12px;font-weight:800}
+.fc-toolbar-title{font-size:18px;font-weight:850;letter-spacing:-.35px}
+.fc-toolbar-note{font-size:12px;color:#b9c8d6}
+.fc-toolbar-actions{display:flex;align-items:end;gap:10px;flex-wrap:wrap}
+.fc-toolbar-actions label{display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:800;color:#c9d3de}
+.fc-toolbar-actions select{min-height:44px;min-width:185px;padding:10px;background:#26303b;border:1px solid #667486;color:#fff;border-radius:9px;font-size:14px;font-weight:750}
+#lock{min-height:44px;font-size:12px;padding:10px 12px}
+.fc-view-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:13px 0 5px;color:#c4ced8;font-size:13px}
+.fc-view-meta strong{color:#f6f7fa}
+#viewerStatus{color:#ffc29a;min-height:0;margin:0 0 8px;font-size:12px}
+.fc-reader-frame{border:1px solid #404e60;border-radius:13px;overflow:hidden;background:#101116}
+#viewer{display:block;width:100%;height:720px;min-height:0;border:0;border-radius:0;background:#101116;overflow:hidden}
+.fc-back{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));right:14px;z-index:80;border:1px solid #ffb17c;background:#4d3328;color:#fff;box-shadow:0 6px 24px #000b;border-radius:999px;padding:12px 16px;font-size:12px;min-height:46px}
+[hidden]{display:none!important}
+@media(max-width:650px){
+ header{padding:14px 13px;font-size:18px}
+ header b{padding:5px 7px;margin-right:5px}
+ .fc-header-caption{font-size:9px}
+ .wrap{padding:12px}
+ .fc-login-intro{margin:15px auto 0}
+ .fc-login-intro h1{font-size:25px}
+ .fc-login-intro p{font-size:13px}
+ #accessPanel{padding:18px 15px;border-radius:13px;margin:17px 0}
+ .fc-trainer-toolbar{top:0;padding:10px;border-radius:11px;margin:0 -2px}
+ .fc-trainer-toolbar-main{gap:8px}
+ .fc-toolbar-title{font-size:16px}
+ .fc-toolbar-note{font-size:11px}
+ .fc-toolbar-actions{width:100%;gap:7px}
+ .fc-toolbar-actions label{flex:1;min-width:0}
+ .fc-toolbar-actions select{min-width:0;width:100%;font-size:13px}
+ #lock{min-width:100px;max-width:130px;line-height:1.15;white-space:normal}
+ .fc-reader-frame{border-radius:10px;margin:0 -8px}
+ .fc-view-meta{margin:11px 1px 5px}
+ .fc-key-row input{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style></head><body>
+<header><div><b>FC</b> FIT CLUB</div><span class="fc-header-caption">TRAINER WORKOUT LIBRARY</span></header>
+<div class="wrap">
+ <div id="loginIntro" class="fc-login-intro"><div class="fc-eyebrow">FIT CLUB · COACHING ACCESS</div><h1>Your coaching workspace</h1><p>Choose your branch and verify your assigned key. Then browse detailed workouts by month.</p></div>
+ <section class="panel" id="accessPanel" aria-labelledby="verifyHeading">
+  <div class="fc-step">STEP 01 · VERIFY ACCESS</div><h2 class="fc-panel-title" id="verifyHeading">Trainer sign in</h2><p class="fc-panel-desc">Workout prescriptions are available only with the appropriate trainer key.</p>
+  <div class="fc-field"><label for="branch">Your branch</label><select id="branch"><option value="gomtinagar">Gomtinagar</option><option value="mahanagar">Mahanagar</option></select></div>
+  <form id="unlockForm"><div class="fc-key-field"><label for="key">Trainer access key</label><div class="fc-key-row"><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Enter your key" aria-describedby="status" required><button id="toggleKey" type="button" aria-pressed="false" aria-label="Show access key">Show</button></div></div><button class="fc-verify" type="submit">Verify &amp; view workouts →</button></form>
+  <p id="status" role="status" aria-live="polite"></p><div class="fc-private-hint">Your key is used only for this session and is never placed in the page URL.</div>
+ </section>
+ <section id="viewerBox" hidden aria-label="Trainer workout reader">
+  <div class="fc-trainer-toolbar" id="trainerToolbar">
+   <div class="fc-trainer-toolbar-main"><div><div class="fc-verified-badge">✓ Access verified</div><div class="fc-toolbar-title" id="verifiedBranch">Your branch</div><div class="fc-toolbar-note" id="verifiedRole">Trainer coaching view</div></div><div class="fc-toolbar-actions"><label for="month">Workout period<select id="month"><option value="2026-11">November 2026</option><option value="2026-12">December 2026</option></select></label><button class="secondary" id="lock" type="button">Lock / Change key</button></div></div>
+  </div>
+  <div class="fc-view-meta"><strong id="viewLabel"></strong><span>Full workout instructions</span></div>
+  <p id="viewerStatus" role="status" aria-live="polite"></p>
+  <div class="fc-reader-frame"><iframe id="viewer" title="Fit Club trainer detailed schedule" sandbox="allow-scripts allow-modals" referrerpolicy="no-referrer" scrolling="no"></iframe></div>
+ </section>
+ <button id="backToControls" class="fc-back" type="button" hidden>↑ Workout controls</button>
+</div><script>(()=>{'use strict';
 const $=id=>document.getElementById(id),branch=$('branch'),month=$('month'),key=$('key'),status=$('status'),viewerStatus=$('viewerStatus'),frame=$('viewer');
 const roles=['master','yoga','burn_boxing','strength_recovery'];
 let sessionPassword=null,sessionRole=null,serial=0;
@@ -6,14 +89,24 @@ const params=new URLSearchParams(location.search);
 if(params.get('branch')==='mahanagar')branch.value='mahanagar';
 if(params.get('month')==='2026-12')month.value='2026-12';
 function bytes(s){const raw=atob(s);return Uint8Array.from(raw,c=>c.charCodeAt(0))}
-function lock(){++serial;sessionPassword=null;sessionRole=null;frame.removeAttribute('srcdoc');$('viewerBox').hidden=true;$('accessPanel').hidden=false;key.value='';status.textContent='';viewerStatus.textContent=''}
+function lock(){++serial;sessionPassword=null;sessionRole=null;frame.removeAttribute('srcdoc');frame.style.height='720px';$('viewerBox').hidden=true;$('accessPanel').hidden=false;$('loginIntro').hidden=false;$('backToControls').hidden=true;key.type='password';$('toggleKey').textContent='Show';$('toggleKey').setAttribute('aria-pressed','false');key.value='';status.textContent='';viewerStatus.textContent=''}
 function url(){const p=new URLSearchParams();if(branch.value!=='gomtinagar')p.set('branch',branch.value);if(month.value!=='2026-11')p.set('month',month.value);history.replaceState(null,'',location.pathname+(p.size?'?'+p:''))}
 branch.addEventListener('change',()=>{lock();url()});
 $('lock').addEventListener('click',()=>{lock();key.focus()});
 async function decrypt(item,password){const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);const k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:bytes(item.salt),iterations:item.iterations,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);const dec=await crypto.subtle.decrypt({name:'AES-GCM',iv:bytes(item.iv),additionalData:new TextEncoder().encode(item.aad),tagLength:128},k,bytes(item.data));return await new Response(new Blob([dec]).stream().pipeThrough(new DecompressionStream('deflate'))).text()}
 async function fetchSchedule(b,m){const resp=await fetch('./trainer-data/'+b+'-'+m+'.json',{cache:'no-store'});if(!resp.ok)throw Error(resp.status===404?'Trainer schedule is not published for this period.':'Unable to load encrypted trainer schedule.');const data=await resp.json();if(data.branch!==b||data.month!==m)throw Error('Schedule identity mismatch.');return data}
 function validate(html,b,m){return html.includes('Fit Club · Trainer · '+(b==='gomtinagar'?'Gomtinagar':'Mahanagar')+' · '+m)&&html.includes('data-date')}
-async function loadPeriod(){const v=++serial,b=branch.value,m=month.value,password=sessionPassword,role=sessionRole;if(!password||!role)return;viewerStatus.textContent='Loading '+(m==='2026-11'?'November':'December')+' workouts…';month.disabled=true;frame.removeAttribute('srcdoc');try{const data=await fetchSchedule(b,m);const html=await decrypt(data.payloads[role],password);if(!validate(html,b,m))throw Error('Workout content did not pass validation.');if(v!==serial)return;frame.srcdoc=html;$('viewLabel').textContent=(b==='mahanagar'?'Mahanagar':'Gomtinagar')+' · '+(m==='2026-11'?'November':'December')+' 2026 · '+role.replaceAll('_',' / ');viewerStatus.textContent='';url()}catch(err){if(v===serial){viewerStatus.textContent=err.message||'Unable to load this period.';}}finally{if(v===serial)month.disabled=false}}
+
+function enhanceSchedule(html){
+ const style='<style id="fitclub-mobile-reader-style">@media(max-width:650px){html,body{overflow-x:hidden!important}.container{padding:12px!important;max-width:100%!important}.headinner{padding:12px!important}.hero h1{font-size:21px!important}.controls{gap:8px!important;margin:12px 0!important}.controls select,.controls input{min-width:0!important;font-size:16px!important;min-height:44px!important}.dayHead{font-size:15px!important}.item{padding:13px 12px!important}.item .title{font-size:17px!important}.item .part{padding:11px!important;line-height:1.6!important}.item li{line-height:1.6!important;margin:3px 0!important}.fc-week-btn{min-height:44px!important}.fc-weekly-navigation{padding:12px!important}}@media(min-width:651px){.container{max-width:100%!important;padding:16px!important}}</style>';
+ const bridge='<script>(function(){let last=0;function measure(){const root=document.documentElement,body=document.body;if(!body)return;const height=Math.max(root.scrollHeight,body.scrollHeight,root.offsetHeight,body.offsetHeight);if(Math.abs(height-last)>6){last=height;parent.postMessage({type:"fitclub-trainer-reader-height",height:height},"*")}}window.addEventListener("load",measure);window.addEventListener("resize",measure);document.addEventListener("click",()=>setTimeout(measure,90),true);document.addEventListener("change",()=>setTimeout(measure,90),true);if(window.ResizeObserver)new ResizeObserver(measure).observe(document.body);setTimeout(measure,120);setTimeout(measure,700)})();<\/script>';
+ return html.replace('</head>',style+'</head>').replace('</body>',bridge+'</body>');
+}
+window.addEventListener('message',event=>{if(event.source!==frame.contentWindow||!event.data||event.data.type!=='fitclub-trainer-reader-height'||$('viewerBox').hidden)return;const h=Number(event.data.height);if(Number.isFinite(h)&&h>=250&&h<=200000&&Math.abs(frame.getBoundingClientRect().height-h)>7)frame.style.height=(h+10)+'px'});
+$('toggleKey').addEventListener('click',()=>{const show=key.type==='password';key.type=show?'text':'password';$('toggleKey').textContent=show?'Hide':'Show';$('toggleKey').setAttribute('aria-pressed',String(show));$('toggleKey').setAttribute('aria-label',show?'Hide access key':'Show access key')});
+$('backToControls').addEventListener('click',()=>$('trainerToolbar').scrollIntoView({behavior:'smooth',block:'start'}));
+window.addEventListener('scroll',()=>{$('backToControls').hidden=$('viewerBox').hidden||window.scrollY<650},{passive:true});
+async function loadPeriod(){const v=++serial,b=branch.value,m=month.value,password=sessionPassword,role=sessionRole;if(!password||!role)return;viewerStatus.textContent='Loading '+(m==='2026-11'?'November':'December')+' workouts…';month.disabled=true;frame.removeAttribute('srcdoc');frame.style.height='720px';try{const data=await fetchSchedule(b,m);const html=await decrypt(data.payloads[role],password);if(!validate(html,b,m))throw Error('Workout content did not pass validation.');if(v!==serial)return;frame.srcdoc=enhanceSchedule(html);$('viewLabel').textContent=(b==='mahanagar'?'Mahanagar':'Gomtinagar')+' · '+(m==='2026-11'?'November':'December')+' 2026 · '+role.replaceAll('_',' / ');viewerStatus.textContent='';url()}catch(err){if(v===serial){viewerStatus.textContent=err.message||'Unable to load this period.';}}finally{if(v===serial)month.disabled=false}}
 month.addEventListener('change',loadPeriod);
-$('unlockForm').addEventListener('submit',async e=>{e.preventDefault();const v=++serial,b=branch.value,password=key.value;status.textContent='Verifying trainer key…';try{if(!crypto?.subtle||typeof DecompressionStream==='undefined')throw Error('Use an updated HTTPS browser.');const data=await fetchSchedule(b,'2026-11');let role=null;for(const name of roles){try{const html=await decrypt(data.payloads[name],password);if(validate(html,b,'2026-11')){role=name;break}}catch(err){if(err?.name==='NotSupportedError')throw err}}if(v!==serial)return;if(!role)throw Error('Access key not recognised for this branch.');sessionPassword=password;sessionRole=role;key.value='';status.textContent='';$('accessPanel').hidden=true;$('viewerBox').hidden=false;await loadPeriod()}catch(err){if(v===serial){status.textContent=err.message||'Unable to verify key.';key.value='';key.focus()}}});
+$('unlockForm').addEventListener('submit',async e=>{e.preventDefault();const v=++serial,b=branch.value,password=key.value;status.textContent='Verifying trainer key…';try{if(!crypto?.subtle||typeof DecompressionStream==='undefined')throw Error('Use an updated HTTPS browser.');const data=await fetchSchedule(b,'2026-11');let role=null;for(const name of roles){try{const html=await decrypt(data.payloads[name],password);if(validate(html,b,'2026-11')){role=name;break}}catch(err){if(err?.name==='NotSupportedError')throw err}}if(v!==serial)return;if(!role)throw Error('Access key not recognised for this branch.');sessionPassword=password;sessionRole=role;key.value='';key.type='password';status.textContent='';$('accessPanel').hidden=true;$('loginIntro').hidden=true;$('viewerBox').hidden=false;$('verifiedBranch').textContent=b==='mahanagar'?'Mahanagar':'Gomtinagar';$('verifiedRole').textContent=role.replaceAll('_',' / ')+' · coaching access';await loadPeriod()}catch(err){if(v===serial){status.textContent=err.message||'Unable to verify key.';key.value='';key.focus()}}});
 })();</script></body></html>

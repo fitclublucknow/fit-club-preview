@@ -129,6 +129,7 @@ function clubToday(){
  return p.year+'-'+p.month+'-'+p.day;
 }
 function days10(start){let d=start,out=[];while(out.length<10){if(dow(d)!==0)out.push(d);d=plus(d,1)}return out}
+function allMonthDays(month){let day=month+'-01',out=[];while(day.slice(0,7)===month){if(dow(day)!==0)out.push(day);day=plus(day,1)}return out}
 function dateLabel(s){return parse(s).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'})}
 function monthLabel(s){return parse(s).toLocaleDateString('en-GB',{month:'long',year:'numeric',timeZone:'UTC'})}
 const firstDay=FIRST_PUBLISHED_MONTH+'-01';
@@ -163,7 +164,7 @@ let activeRender=0;
 let currentDay='',needsFutureMonth=false,selectedDate='',activeRange=[];
 async function render(){
  const serial=++activeRender;
- const today=clubToday(),start=initialStart(),range=days10(start);
+ const today=clubToday(),start=initialStart(),range=selectedMonth==='auto'?days10(start):allMonthDays(selectedMonth);
  activeRange=range;if(!range.includes(selectedDate))selectedDate=range[0];
  currentDay=today;
  const months=Array.from(new Set(range.map(d=>d.slice(0,7))));
@@ -203,8 +204,8 @@ async function render(){
  });
  nav.appendChild(navFrag);container.appendChild(frag);
  $('dateRange').textContent=dateLabel(range[0])+' – '+dateLabel(range[range.length-1]);
- const pref=selectedMonth!=='auto'?'Showing the first ten Monday–Saturday dates of '+monthLabel(selectedMonth+'-01')+'. ':today<firstDay?'The schedule has not started. Showing the first ten available Monday–Saturday dates. ':'';
- status.textContent=pref+readyDays+' of 10 dates have published workouts · '+numberOfClasses+' classes.';
+ const pref=selectedMonth!=='auto'?'Full '+monthLabel(selectedMonth+'-01')+' schedule · ':today<firstDay?'The schedule has not started. Showing the first ten available Monday–Saturday dates. ':'';
+ status.textContent=pref+readyDays+' of '+range.length+' workout dates have published classes · '+numberOfClasses+' classes.';
  needsFutureMonth=missingMonths.size>0 || badMonths.size>0;
  if(needsFutureMonth){
   note.hidden=false;
@@ -233,7 +234,7 @@ function applySearch(){
  $('nextDay').disabled=idx<0||idx>=activeRange.length-1;
  $('pagerPosition').textContent=(idx+1)+' of '+activeRange.length+' workout days';
  nav.querySelectorAll('.fc-date-link').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===idx)));
- count.textContent=q?shown+' matching classes':shown+' classes today';
+ count.textContent=q?shown+' matching classes':shown+' classes on selected day';
 }
 function selectDate(day,shouldScroll){
  if(!activeRange.includes(day))return;
